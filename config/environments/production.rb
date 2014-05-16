@@ -77,4 +77,8 @@ GdgMuseumApi::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  if Rails.env == 'production'
+      Rake::Task["db:structure:dump"].clear
+  end
 end

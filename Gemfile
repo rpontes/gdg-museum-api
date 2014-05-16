@@ -11,6 +11,10 @@ gem "turbolinks"
 gem "jbuilder", "~> 1.2"
 gem "active_model_serializers"
 
+group :production do
+  gem "rails_12factor"
+end
+
 group :doc do
   gem "sdoc", require: false
 end
