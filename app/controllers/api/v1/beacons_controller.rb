@@ -17,11 +17,28 @@ class Api::V1::BeaconsController < ApiController
     major = params["major"]
     minor = params["minor"]
 
-    museum = Museum.where(uuid: uuid).first
-    region = museum.regions.where(major: major).first
-    art = region.arts.where(minor: minor).first
+    museum = Museum.where("lower(uuid) = ?", uuid.downcase).first
 
-    render json: art, status: :ok
+    error = false
+
+    if !museum.nil?
+      region = museum.regions.where(major: major).first
+
+      if !region.nil?
+        art = region.arts.where(minor: minor).first
+      else
+        error = true
+      end
+    else
+      error = true
+    end
+
+    if error
+      render json: { error: "Não encontrado" }, status: 422
+    else
+      render json: art, status: :ok
+    end
+
   end
 end
 

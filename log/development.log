@@ -4290,3 +4290,42 @@ Processing by Api::V1::BeaconsController#search as JSON
   [1m[36mRegion Load (1.0ms)[0m  [1mSELECT "regions".* FROM "regions" WHERE "regions"."id" = $1 LIMIT 1[0m  [["id", 1]]
   [1m[35mMuseum Load (1.2ms)[0m  SELECT "museums".* FROM "museums" WHERE "museums"."id" = $1 LIMIT 1  [["id", 1]]
 Completed 200 OK in 27ms (Views: 8.5ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/api/beacon/search?uuid=B9407F30-F5F8-466E-AFF9-25556B57FE6D&major=1&minor=1" for 10.0.2.2 at 2014-05-16 15:04:32 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::BeaconsController#search as JSON
+  Parameters: {"uuid"=>"B9407F30-F5F8-466E-AFF9-25556B57FE6D", "major"=>"1", "minor"=>"1", "beacon"=>{}}
+  [1m[35mMuseum Load (4.4ms)[0m  SELECT "museums".* FROM "museums" WHERE (lower(uuid) = 'b9407f30-f5f8-466e-aff9-25556b57fe6d') ORDER BY "museums"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 84ms
+
+NoMethodError (undefined method `empty?' for #<Museum:0x00000003149030>):
+  app/controllers/api/v1/beacons_controller.rb:24:in `search'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1@gdg-museum/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1@gdg-museum/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1@gdg-museum/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.1@gdg-museum/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.3ms)
+
+
+Started GET "/api/beacon/search?uuid=B9407F30-F5F8-466E-AFF9-25556B57FE6D&major=1&minor=1" for 10.0.2.2 at 2014-05-16 15:05:01 -0300
+Processing by Api::V1::BeaconsController#search as JSON
+  Parameters: {"uuid"=>"B9407F30-F5F8-466E-AFF9-25556B57FE6D", "major"=>"1", "minor"=>"1", "beacon"=>{}}
+  [1m[36mMuseum Load (0.7ms)[0m  [1mSELECT "museums".* FROM "museums" WHERE (lower(uuid) = 'b9407f30-f5f8-466e-aff9-25556b57fe6d') ORDER BY "museums"."id" ASC LIMIT 1[0m
+  [1m[35mRegion Load (10.3ms)[0m  SELECT "regions".* FROM "regions" WHERE "regions"."museum_id" = $1 AND "regions"."major" = '1' ORDER BY "regions"."id" ASC LIMIT 1  [["museum_id", 1]]
+  [1m[36mArt Load (1.8ms)[0m  [1mSELECT "arts".* FROM "arts" WHERE "arts"."region_id" = $1 AND "arts"."minor" = '1' ORDER BY "arts"."id" ASC LIMIT 1[0m  [["region_id", 1]]
+  [1m[35mRegion Load (1.6ms)[0m  SELECT "regions".* FROM "regions" WHERE "regions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mMuseum Load (1.2ms)[0m  [1mSELECT "museums".* FROM "museums" WHERE "museums"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 270ms (Views: 62.9ms | ActiveRecord: 30.1ms)
+
+
+Started GET "/api/beacon/search?uuid=b9407f30-f5f8-466e-aff9-25556b57fe6d&major=1&minor=1" for 10.0.2.2 at 2014-05-16 15:05:43 -0300
+Processing by Api::V1::BeaconsController#search as JSON
+  Parameters: {"uuid"=>"b9407f30-f5f8-466e-aff9-25556b57fe6d", "major"=>"1", "minor"=>"1", "beacon"=>{}}
+  [1m[35mMuseum Load (1.1ms)[0m  SELECT "museums".* FROM "museums" WHERE (lower(uuid) = 'b9407f30-f5f8-466e-aff9-25556b57fe6d') ORDER BY "museums"."id" ASC LIMIT 1
+  [1m[36mRegion Load (1.1ms)[0m  [1mSELECT "regions".* FROM "regions" WHERE "regions"."museum_id" = $1 AND "regions"."major" = '1' ORDER BY "regions"."id" ASC LIMIT 1[0m  [["museum_id", 1]]
+  [1m[35mArt Load (1.1ms)[0m  SELECT "arts".* FROM "arts" WHERE "arts"."region_id" = $1 AND "arts"."minor" = '1' ORDER BY "arts"."id" ASC LIMIT 1  [["region_id", 1]]
+  [1m[36mRegion Load (2.6ms)[0m  [1mSELECT "regions".* FROM "regions" WHERE "regions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMuseum Load (0.8ms)[0m  SELECT "museums".* FROM "museums" WHERE "museums"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 22ms (Views: 6.1ms | ActiveRecord: 6.7ms)
