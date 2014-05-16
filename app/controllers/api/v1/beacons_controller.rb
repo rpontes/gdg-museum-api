@@ -36,7 +36,7 @@ class Api::V1::BeaconsController < ApiController
     if error
       render json: { error: "Não encontrado" }, status: 422
     else
-      render json: art, status: :ok
+      render json: art, root: false, status: :ok
     end
 
   end

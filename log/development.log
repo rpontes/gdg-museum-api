@@ -4329,3 +4329,23 @@ Processing by Api::V1::BeaconsController#search as JSON
   [1m[36mRegion Load (2.6ms)[0m  [1mSELECT "regions".* FROM "regions" WHERE "regions"."id" = $1 LIMIT 1[0m  [["id", 1]]
   [1m[35mMuseum Load (0.8ms)[0m  SELECT "museums".* FROM "museums" WHERE "museums"."id" = $1 LIMIT 1  [["id", 1]]
 Completed 200 OK in 22ms (Views: 6.1ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/api/beacon/search?uuid=xxxx&major=1&minor=1" for 10.0.2.2 at 2014-05-16 15:06:07 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::BeaconsController#search as JSON
+  Parameters: {"uuid"=>"xxxx", "major"=>"1", "minor"=>"1", "beacon"=>{}}
+  [1m[35mMuseum Load (2.2ms)[0m  SELECT "museums".* FROM "museums" WHERE (lower(uuid) = 'xxxx') ORDER BY "museums"."id" ASC LIMIT 1
+Completed 422 Unprocessable Entity in 85ms (Views: 0.3ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/api/beacon/search?uuid=b9407f30-f5f8-466e-aff9-25556b57fe6d&major=1&minor=1" for 10.0.2.2 at 2014-05-16 15:10:38 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::BeaconsController#search as JSON
+  Parameters: {"uuid"=>"b9407f30-f5f8-466e-aff9-25556b57fe6d", "major"=>"1", "minor"=>"1", "beacon"=>{}}
+  [1m[35mMuseum Load (1.3ms)[0m  SELECT "museums".* FROM "museums" WHERE (lower(uuid) = 'b9407f30-f5f8-466e-aff9-25556b57fe6d') ORDER BY "museums"."id" ASC LIMIT 1
+  [1m[36mRegion Load (8.7ms)[0m  [1mSELECT "regions".* FROM "regions" WHERE "regions"."museum_id" = $1 AND "regions"."major" = '1' ORDER BY "regions"."id" ASC LIMIT 1[0m  [["museum_id", 1]]
+  [1m[35mArt Load (2.2ms)[0m  SELECT "arts".* FROM "arts" WHERE "arts"."region_id" = $1 AND "arts"."minor" = '1' ORDER BY "arts"."id" ASC LIMIT 1  [["region_id", 1]]
+  [1m[36mRegion Load (1.3ms)[0m  [1mSELECT "regions".* FROM "regions" WHERE "regions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mMuseum Load (1.5ms)[0m  SELECT "museums".* FROM "museums" WHERE "museums"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 289ms (Views: 59.2ms | ActiveRecord: 27.6ms)
