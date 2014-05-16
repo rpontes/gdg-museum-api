@@ -1644,3 +1644,17 @@ Started GET "/assets/beacons.js?body=1" for 10.0.2.2 at 2014-05-16 13:19:53 -030
 
 
 Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-05-16 13:19:53 -0300
+
+
+Started GET "/beacons/new" for 10.0.2.2 at 2014-05-16 13:36:43 -0300
+Processing by BeaconsController#new as HTML
+  Rendered beacons/_form.html.erb (4.3ms)
+  Rendered beacons/new.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 136ms (Views: 133.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/beacons/1" for 10.0.2.2 at 2014-05-16 13:40:13 -0300
+Processing by Api::V1::BeaconsController#show as JSON
+  Parameters: {"id"=>"1", "beacon"=>{}}
+  [1m[35mBeacon Load (0.7ms)[0m  SELECT "beacons".* FROM "beacons" WHERE "beacons"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 200 OK in 14ms (Views: 10.3ms | ActiveRecord: 0.7ms)
