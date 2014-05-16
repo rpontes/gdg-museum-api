@@ -1573,3 +1573,74 @@ Processing by BeaconsController#index as HTML
   [1m[35mBeacon Load (0.8ms)[0m  SELECT "beacons".* FROM "beacons"
   Rendered beacons/index.html.erb within layouts/application (2.8ms)
 Completed 200 OK in 100ms (Views: 98.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/beacons/1" for 10.0.2.2 at 2014-05-16 13:18:12 -0300
+Processing by BeaconsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeacon Load (0.7ms)[0m  [1mSELECT "beacons".* FROM "beacons" WHERE "beacons"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered beacons/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 96ms (Views: 93.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/beacons?minor=1" for 10.0.2.2 at 2014-05-16 13:18:24 -0300
+Processing by BeaconsController#index as HTML
+  Parameters: {"minor"=>"1"}
+  [1m[35mBeacon Load (1.0ms)[0m  SELECT "beacons".* FROM "beacons"
+  Rendered beacons/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 89ms (Views: 86.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-05-16 13:18:24 -0300
+
+
+Started GET "/assets/beacons.css?body=1" for 10.0.2.2 at 2014-05-16 13:18:25 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.0.2.2 at 2014-05-16 13:18:25 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-05-16 13:18:25 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-05-16 13:18:25 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-05-16 13:18:25 -0300
+
+
+Started GET "/assets/beacons.js?body=1" for 10.0.2.2 at 2014-05-16 13:18:25 -0300
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-05-16 13:18:25 -0300
+
+
+Started GET "/" for 10.0.2.2 at 2014-05-16 13:19:52 -0300
+Processing by BeaconsController#index as HTML
+  [1m[36mBeacon Load (0.8ms)[0m  [1mSELECT "beacons".* FROM "beacons"[0m
+  Rendered beacons/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 93ms (Views: 91.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-05-16 13:19:53 -0300
+
+
+Started GET "/assets/beacons.css?body=1" for 10.0.2.2 at 2014-05-16 13:19:53 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.0.2.2 at 2014-05-16 13:19:53 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-05-16 13:19:53 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-05-16 13:19:53 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2014-05-16 13:19:53 -0300
+
+
+Started GET "/assets/beacons.js?body=1" for 10.0.2.2 at 2014-05-16 13:19:53 -0300
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-05-16 13:19:53 -0300
