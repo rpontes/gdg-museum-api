@@ -21,16 +21,16 @@ class Api::V1::BeaconsController < ApiController
 
     error = false
 
-    if !museum.nil?
+    if museum.nil?
+      error = true
+    else
       region = museum.regions.where(major: major).first
 
-      if !region.nil?
-        art = region.arts.where(minor: minor).first
-      else
+      if region.nil?
         error = true
+      else
+        art = region.arts.where(minor: minor).first
       end
-    else
-      error = true
     end
 
     if error
