@@ -15,6 +15,7 @@ class BeaconsController < ApplicationController
   # GET /beacons/new
   def new
     @beacon = Beacon.new
+    @beacon.uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
   end
 
   # GET /beacons/1/edit
