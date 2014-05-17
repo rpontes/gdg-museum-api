@@ -4548,3 +4548,20 @@ Processing by ArtsController#index as HTML
   [1m[36mRegion Load (0.8ms)[0m  [1mSELECT "regions".* FROM "regions" WHERE "regions"."id" = $1 LIMIT 1[0m  [["id", 1]]
   Rendered arts/index.html.erb within layouts/application (5.5ms)
 Completed 200 OK in 115ms (Views: 111.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/arts/1" for 10.0.2.2 at 2014-05-16 16:06:00 -0300
+Processing by ArtsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArt Load (1.5ms)[0m  SELECT "arts".* FROM "arts" WHERE "arts"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mRegion Load (2.1ms)[0m  [1mSELECT "regions".* FROM "regions" WHERE "regions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered arts/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 123ms (Views: 117.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/arts" for 10.0.2.2 at 2014-05-16 16:06:02 -0300
+Processing by ArtsController#index as HTML
+  [1m[35mArt Load (1.0ms)[0m  SELECT "arts".* FROM "arts"
+  [1m[36mRegion Load (0.7ms)[0m  [1mSELECT "regions".* FROM "regions" WHERE "regions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered arts/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 114ms (Views: 111.2ms | ActiveRecord: 1.7ms)
